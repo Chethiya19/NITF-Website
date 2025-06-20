@@ -6,7 +6,9 @@ The NITF website enables secure management of insurance-related operations inclu
 
 # Technologies Used
 Frontend: React.js, React Router, Axios, Bootstrap
+
 Backend: Spring Boot, Spring Security, JWT Authentication
+
 Database: MySQL
 
 # Home page
