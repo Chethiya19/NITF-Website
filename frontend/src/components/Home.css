@@ -1,0 +1,216 @@
+/* GLOBAL STYLES */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Section Container Styling */
+.section {
+  width: 100%;
+  max-width: 1005;
+  margin: 0 auto;
+}
+
+/* Section Title */
+.section-title {
+  color: #083988;
+  font-weight: 900;
+  text-align: center;
+  font-size: xx-large;
+  margin-bottom: 2rem;
+}
+
+/* SERVICES SECTION */
+#services {
+  background-color: #c6d3db;
+}
+
+/* Scroll Wrapper Container */
+.scroll-wrapper {
+  overflow-x: hidden;  /* Hide horizontal scrollbar */
+  overflow-y: hidden;  /* Just in case */
+  width: 100%;
+  position: relative;
+  padding: 1rem 0;
+  /* Optional: add white-space nowrap to avoid line break, but you use flex so it's fine */
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.scroll-wrapper {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+
+/* Scrolling Flex Container */
+.scrolling-cards {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scrollLeft 30s linear infinite;
+}
+
+/* Individual Service Cards */
+.service-card {
+  min-width: 250px;
+  max-width: 250px;
+  padding: 1.5rem 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+}
+
+.service-card h5 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Scrolling Animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause scroll on hover */
+.scroll-wrapper:hover .scrolling-cards {
+  animation-play-state: paused;
+}
+
+/* Responsive service cards */
+@media (max-width: 768px) {
+  .service-card {
+    min-width: 200px;
+    max-width: 200px;
+    padding: 1rem;
+  }
+}
+
+/* CAROUSEL */
+.carousel-wrapper {
+  margin-top: 60px;
+}
+
+.carousel-inner,
+.carousel-item {
+  width: 100%;
+}
+
+.carousel-caption {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.carousel-item.active .carousel-caption {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+@keyframes slideUpFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-item.active .carousel-caption.animate-slideup {
+  animation: slideUpFadeIn 0.6s forwards ease-out;
+}
+
+.carousel-caption h2 {
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.carousel .btn {
+  font-size: 1.1rem;
+}
+
+/* CAPTION BUTTON */
+.custom-hover-btn {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  color: #fff;
+}
+
+.custom-hover-btn:hover {
+  background-color: #ffffff;
+  border-color: #0a2342;
+  color: #0a2342;
+}
+
+/* ABOUT US IMAGE */
+img.img-fluid {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* CONTACT FORM FOCUS EFFECT */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* GOOGLE MAP RESPONSIVE */
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border: 0;
+}
+
+/* BLINKING TEXT ANIMATION */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.blinking-text {
+  animation: blink 3s infinite;
+}

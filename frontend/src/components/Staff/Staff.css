@@ -1,0 +1,25 @@
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.modern-table th,
+.modern-table td {
+  border-top: 1px solid #dee2e6;
+  padding: 12px;
+  vertical-align: middle;
+}
+
+.modern-table th {
+  background-color: #e7e7e7;
+  font-weight: 600;
+}
+
+.modern-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.modern-table td button {
+  margin: 0 2px;
+}

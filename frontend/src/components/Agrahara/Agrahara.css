@@ -1,0 +1,58 @@
+.layout-container {
+  display: flex;
+  height: 100vh; /* full viewport height */
+}
+
+.right-container {
+  flex: 1; /* take remaining width */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.right-container > header, /* If Header component renders as <header> */
+.header, /* or if Header has a .header class */
+.right-container > div:first-child {
+  /* To cover any scenario for Header */
+  flex-shrink: 0; /* don't shrink */
+}
+
+.content-container {
+  flex: 1; /* fill remaining vertical space */
+  overflow-y: auto; /* scroll if content overflows */
+  padding: 16px;
+  background-color: #dfdfdf; /* content background */
+}
+
+.sidebar-link:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ffd700;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.modern-table th,
+.modern-table td {
+  border-top: 1px solid #dee2e6;
+  padding: 12px;
+  vertical-align: middle;
+}
+
+.modern-table th {
+  background-color: #e7e7e7;
+  font-weight: 600;
+}
+
+.modern-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.modern-table td button {
+  margin: 0 2px;
+}

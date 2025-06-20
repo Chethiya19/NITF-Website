@@ -1,0 +1,182 @@
+.header {
+  background: linear-gradient(90deg, #333333, #757575); 
+  padding: 15px 0;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.logo-icon {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: #007BFF;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-title {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.nav-link {
+  color: white !important;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #e6fa2e !important;
+  text-decoration: none;
+  transform: scale(1.1);
+  transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: rgb(194, 193, 193);
+  color: #0bd615;
+}
+
+.btn-light:hover {
+  background-color: #6a90b3;
+}
+
+.hover-dropdown {
+  position: relative;
+}
+
+.hover-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #71767a; /* match navbar background */
+  border: none;
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.hover-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  color: white !important;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #32373b;
+  color: white !important;
+}
+
+/* User icon button in header */
+.user-icon-btn {
+  font-size: 28px;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.user-icon-btn:hover {
+  color: #0bd615; /* Change to your desired hover color */
+  transform: scale(1.2); /* Zoom up to 120% */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Sidebar styles */
+.sidebar-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 0;
+  background: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+  z-index: 1050;
+  pointer-events: none;
+}
+
+.sidebar-drawer.open {
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: auto;
+}
+
+.sidebar-content {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 320px;
+  background: #ffffff;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+  border-radius: 8px 0 0 8px;
+}
+
+.sidebar-drawer.open .sidebar-content {
+  transform: translateX(0);
+}
+
+.btn-close-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.btn-close-icon:hover {
+  color: #007bff;
+}
+
+.sidebar-title {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.btn-outline-primary {
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+  border-color: #dc3545;
+}
+

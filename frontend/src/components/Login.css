@@ -1,0 +1,24 @@
+.login-container {
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    background-color: #ffffffee;
+}
+
+input.form-control {
+    border-radius: 10px;
+}
+
+button.btn-success {
+    border-radius: 10px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-success:hover {
+    background-color: #218838;
+}

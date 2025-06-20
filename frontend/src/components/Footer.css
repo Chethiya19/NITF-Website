@@ -1,0 +1,218 @@
+/* Base footer styles */
+.footer {
+  background-color: #1e1e1e;
+  color: #ddd;
+  padding: 2rem 1rem 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.4);
+  user-select: none;
+}
+
+.footer-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+/* Brand Section */
+.footer-brand {
+  max-width: 280px;
+}
+
+.footer-logo {
+  color: #f39c12;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  font-size: 2.25rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  user-select: text;
+  cursor: default;
+}
+
+.footer-logo-highlight {
+  color: #e67e22;
+  text-shadow: 0 0 5px #e67e22aa;
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #bbb;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+  user-select: text;
+}
+
+.footer-link {
+  color: #f39c12;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.4s ease, transform 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  color: #f1c40f;
+  text-decoration: underline;
+  outline: none;
+  transform: translateY(-5px);
+}
+
+/* Contact Section */
+.footer-contact {
+  min-width: 240px;
+  font-size: 0.95rem;
+  user-select: text;
+}
+
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+  color: #ddd;
+}
+
+.footer-icon {
+  color: #f39c12;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a.footer-link:hover .footer-icon {
+  color: #f1c40f;
+}
+
+/* Heading style for all sections */
+.footer-heading {
+  color: #f39c12;
+  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* Social Section */
+.footer-social {
+  min-width: 220px;
+  text-align: center;
+}
+
+.social-icons {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.social-link {
+  color: #ccc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #333333;
+  box-shadow: 0 0 10px transparent;
+  transition: all 0.4s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.social-link:hover,
+.social-link:focus {
+  color: #fff;
+  background: linear-gradient(45deg, #f39c12, #e67e22, #f1c40f, #f39c12);
+  box-shadow: 0 0 10px #f39c12;
+  animation: colorShift 3s linear infinite;
+  transform: translateY(-5px);
+}
+
+/* Hover color moving effect on social icons */
+@keyframes colorShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Bottom copyright */
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #444;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.footer-bottom:hover,
+.footer-bottom:focus {
+  transform: translateY(-5px);
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .footer-social {
+    text-align: left;
+  }
+}
+
+/* Fade-in and slide-up on scroll */
+/* Start hidden */
+.fade-in-hidden {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When visible */
+.fade-in-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Optional fadeInUp keyframe if you want to keep it */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fadeInUp {
+  animation-fill-mode: both;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+}
