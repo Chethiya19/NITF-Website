@@ -17,10 +17,10 @@ Tools : Visual Studio Code, Intellij IDEA Community Edition
 ![Screenshot 2025-06-20 115723](https://github.com/user-attachments/assets/4899e67a-66e5-4548-b013-f154ef4cc85b)
 
 # Agrahara Member Dashboard
-![image](https://github.com/user-attachments/assets/99c6767d-51ef-4ad4-b451-189ca1b008f5)
+![Screenshot 2025-06-20 123130](https://github.com/user-attachments/assets/8bf41703-0160-429a-84ea-c17e1c51468a)
 
 # Staff Dashboard 
-![Screenshot 2025-06-20 123130](https://github.com/user-attachments/assets/8bf41703-0160-429a-84ea-c17e1c51468a)
+![Screenshot 2025-06-20 120113](https://github.com/user-attachments/assets/d766ac0a-f15e-4d6f-9295-96d792700174)
 
 # System Requirements
 Java JDK 17 or higher
