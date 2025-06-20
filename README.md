@@ -2,7 +2,7 @@
 This project is a web application for the National Insurance Trust Fund (NITF), developed using React for the frontend, Spring Boot for the backend API, and MySQL as the database. The system supports three types of users: Member, Staff, and Admin, each with specific roles and permissions.
 
 # Project Overview
-The NITF website enables secure management of insurance-related operations including member registration, staff management, and administrative control. The backend is built with Spring Boot RESTful APIs secured with JWT authentication, and the frontend is a React SPA (Single Page Application). MySQL stores all persistent data.
+The NITF website enables secure management of insurance-related operations including member registration, staff management, and administrative control. The backend is built with Spring Boot RESTful APIs secured with JWT authentication, and the frontend is a React js. MySQL stores all persistent data.
 
 # Technologies Used
 Frontend : React.js, React Router, Axios, Bootstrap
