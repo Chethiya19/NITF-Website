@@ -20,7 +20,7 @@ Tools : Visual Studio Code, Intellij IDEA Community Edition
 ![image](https://github.com/user-attachments/assets/99c6767d-51ef-4ad4-b451-189ca1b008f5)
 
 # Staff Dashboard 
-![image](https://github.com/user-attachments/assets/7e45c25a-c4d2-4a5d-8113-a93a8ff5f15c)
+![Screenshot 2025-06-20 123130](https://github.com/user-attachments/assets/8bf41703-0160-429a-84ea-c17e1c51468a)
 
 # System Requirements
 Java JDK 17 or higher
