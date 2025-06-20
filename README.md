@@ -24,6 +24,9 @@ Tools : Visual Studio Code, Intellij IDEA Community Edition
 
 # System Requirements
 Java JDK 17 or higher
+
 Node.js (v14 or higher recommended)
+
 MySQL Server
+
 Maven (for building backend)
