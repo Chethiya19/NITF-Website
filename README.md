@@ -5,17 +5,22 @@ This project is a web application for the National Insurance Trust Fund (NITF), 
 The NITF website enables secure management of insurance-related operations including member registration, staff management, and administrative control. The backend is built with Spring Boot RESTful APIs secured with JWT authentication, and the frontend is a React SPA (Single Page Application). MySQL stores all persistent data.
 
 # Technologies Used
-Frontend: React.js, React Router, Axios, Bootstrap
+Frontend : React.js, React Router, Axios, Bootstrap
 
-Backend: Spring Boot, Spring Security, JWT Authentication
+Backend : Spring Boot, Spring Security, JWT Authentication
 
-Database: MySQL
+Database : MySQL
+
+Tools : Visual Studio Code, Intellij IDEA Community Edition
 
 # Home page
 ![Screenshot 2025-06-20 115723](https://github.com/user-attachments/assets/4899e67a-66e5-4548-b013-f154ef4cc85b)
 
 # Agrahara Member Dashboard
 ![image](https://github.com/user-attachments/assets/99c6767d-51ef-4ad4-b451-189ca1b008f5)
+
+# Staff Dashboard 
+![image](https://github.com/user-attachments/assets/e6ff334d-b5d3-4958-b14f-43349fcf2537)
 
 # System Requirements
 Java JDK 17 or higher
