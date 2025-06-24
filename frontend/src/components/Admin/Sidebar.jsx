@@ -13,7 +13,7 @@ const Sidebar = () => {
       <ul style={ulStyle}>
         <li><Link to="/admin-dashboard" style={linkStyle} className="sidebar-link">Dashboard</Link></li>
         <li><Link to="/member-list" style={linkStyle} className="sidebar-link">Member List</Link></li>
-        <li><Link to="/member-details" style={linkStyle} className="sidebar-link">Member Details</Link></li>
+        <li><Link to="/member-list" style={linkStyle} className="sidebar-link">Member Details</Link></li>
       </ul>
     </aside>
   );

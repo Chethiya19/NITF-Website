@@ -34,7 +34,7 @@ const sliderImages = [
     alt: 'Image 3',
     caption: 'Motor Insurance',
     text: 'Vehicle insurance policy dedicated towards Public Servants. Let us hold the burden,so you can enjoy your journey.',
-    link: '/',
+    link: '/motor',
   },
 ];
 
@@ -153,7 +153,7 @@ function Home() {
         </section>
 
         {/* ✅ About Section */}
-        <section id="about" className="section shadow-sm mb-5 p-4 rounded" data-aos="fade-up">
+        <section id="about" style={{ scrollMarginTop: '70px' }} className="section shadow-sm mb-5 p-4 rounded" data-aos="fade-up">
           <h3 className="section-title mb-4 text-center">About Us</h3>
 
           <div className="row align-items-center">
@@ -197,7 +197,7 @@ function Home() {
         </section>
 
         {/* ✅ Contact Section */}
-        <section id="contact" className="section shadow-sm mb-5 p-4 rounded" data-aos="fade-up">
+        <section id="contact" style={{ scrollMarginTop: '70px' }} className="section shadow-sm mb-5 p-4 rounded" data-aos="fade-up">
           <h3 className="section-title mb-4">Contact Us</h3>
           <div className="row">
 

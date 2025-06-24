@@ -137,4 +137,16 @@ public class DependentService {
         dto.setRelationship(entity.getRelationship());
         return dto;
     }
+
+    public long getDependentCount() {
+        return dependentRepository.count();
+    }
+
+    public long getDependentCountByMemberNic(String memberNic) {
+        Member member = memberRepository.findByNic(memberNic)
+                .orElseThrow(() -> new IllegalArgumentException("Member not found"));
+
+        return dependentRepository.countByMember(member);
+    }
+
 }

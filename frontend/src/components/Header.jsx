@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MdClose } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/nitflogo.jpg';
 import { FcBusinessman, FcBusinesswoman, FcLock, FcManager } from "react-icons/fc";
 import './Header.css';
@@ -49,6 +49,8 @@ function Header() {
     boxShadow: '0 2px 8px rgba(0, 123, 255, 0.2)'
   };
 
+  
+
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
@@ -82,19 +84,29 @@ function Header() {
                 </span>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="/agrahara-login">Agrahara</Link>
+                    <NavLink to="/agrahara-login" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                      Agrahara
+                    </NavLink>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/motor">Motor</Link>
+                    <NavLink to="/motor" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                      Motor
+                    </NavLink>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/non-motor">Non Motor</Link>
+                    <NavLink to="/non-motor" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                      Non Motor
+                    </NavLink>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/reinsurance">Reinsurance</Link>
+                    <NavLink to="/reinsurance" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                      Reinsurance
+                    </NavLink>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/srcc">SRCC & TC</Link>
+                    <NavLink to="/srcc" className={({ isActive }) => isActive ? "dropdown-item active" : "dropdown-item"}>
+                      SRCC & TC
+                    </NavLink>
                   </li>
                 </ul>
               </li>
@@ -106,7 +118,7 @@ function Header() {
                 <a className="nav-link text-white" href="/#contact">Contact</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white" href="/#downloads">Downloads</a>
+                <a className="nav-link text-white" href="/downloads">Downloads</a>
               </li>
             </ul>
           </nav>

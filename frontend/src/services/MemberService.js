@@ -26,7 +26,17 @@ const MemberService = {
     } catch (error) {
       throw error.response?.data || error.message;
     }
-  }
+  },
+
+  // Get count of all members
+  getMemberCount: async () => {
+    try {
+      const response = await api.get(API_URL + 'count');
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || error.message;
+    }
+  },
 };
 
 export default MemberService;

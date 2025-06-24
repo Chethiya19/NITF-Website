@@ -35,7 +35,12 @@ public class SecurityConfig {
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**", "/api/staff/**", "/api/reports/**", "/api/admin/login", "/api/public/**").permitAll()
+                        .requestMatchers(
+                                "/api/auth/**", "/api/admin/login",
+                                "/api/staff/signup", "/api/staff/login",
+                                "/api/reports/reports", "/api/reports/files/{filename:.+}",
+                                "/api/reports/view/{filename:.+}",
+                                "/api/public/**", "/api/garages/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider)

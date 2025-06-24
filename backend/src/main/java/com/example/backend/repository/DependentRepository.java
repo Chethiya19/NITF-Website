@@ -10,11 +10,10 @@ import java.util.Optional;
 
 public interface DependentRepository extends JpaRepository<Dependent, Integer> {
     Optional<Dependent> findByNic(String nic);
-
     Optional<Dependent> findByMemberAndNic(Member member, String nic);
-
     List<Dependent> findByMember(Member member);
-
     Optional<Dependent> findByMember_Mid(int mid);
+    long count();
+    long countByMember(Member member);
 
 }

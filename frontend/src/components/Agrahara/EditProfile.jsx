@@ -166,7 +166,7 @@ const EditProfile = () => {
           </div>
           <div className="col-md-3">
             <label className="form-label">Bank</label>
-            <select className="form-control" name="bank" value={memberProfile.bank} onChange={handleChange}>
+            <select className="form-select" name="bank" value={memberProfile.bank} onChange={handleChange}>
               <option value="">Select</option>
               <option value="Bank of Ceylon">Bank of Ceylon</option>
               <option value="People's Bank">People's Bank</option>
@@ -203,7 +203,7 @@ const EditProfile = () => {
           </div>
           <div className="col-md-2">
             <label className="form-label">Civil Status</label>
-            <select className="form-control" name="civilStatus" value={memberProfile.civilStatus} onChange={handleChange}>
+            <select className="form-select" name="civilStatus" value={memberProfile.civilStatus} onChange={handleChange}>
               <option value="">Select</option>
               <option value="Single">Single</option>
               <option value="Married">Married</option>

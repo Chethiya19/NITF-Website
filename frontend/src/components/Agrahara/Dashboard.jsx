@@ -2,17 +2,31 @@ import React, { useEffect, useState } from 'react';
 import MemberService from '../../services/MemberService';
 import { getMemberName } from '../../utils/AuthUtils';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Agrahara.css';
+import DependentService from '../../services/DependentService';
+import ReportService from '../../services/ReportsService';
+
 
 function Dashboard() {
   const [memberProfile, setMemberProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [dependentCount, setDependentCount] = useState(null);
+  const [reportCount, setReportCount] = useState(null);
+
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         const profile = await MemberService.getMemberProfile();
         setMemberProfile(profile);
+
+        // Fetch count
+        const count = await DependentService.getDependentCountForLoggedInMember();
+        setDependentCount(count);
+        const count1 = await ReportService.getReportCountForLoggedInMember();
+        setReportCount(count1);
+
       } catch (err) {
         setError('Failed to fetch member profile. Please login again.');
         console.error(err);
@@ -27,13 +41,13 @@ function Dashboard() {
   if (error) return <div className="alert alert-danger mt-4 text-center">{error}</div>;
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-4 fade-in">
       <div className="text-center mb-4">
-        <h2 className="fw-bold">Welcome, {getMemberName()}!</h2>
-        <p className="text-muted">Here’s your member dashboard</p>
+        <h2 className="fw-bold slide-down"> Welcome, {getMemberName()}!</h2>
+        <p className="text-muted slide-up">Here’s your member dashboard</p>
       </div>
 
-      <div className="row align-items-center justify-content-center">
+      <div className="row align-items-center justify-content-center fade-in scale-in">
         {/* SVG Illustration - Left Side */}
         <div className="col-md-5 text-center mb-4 mb-md-0">
           <svg
@@ -59,7 +73,7 @@ function Dashboard() {
         </div>
 
         {/* Member Details - Right Side */}
-        <div className="col-md-6">
+        <div className="col-md-6 scale-in">
           {memberProfile && (
             <div className="card shadow-lg rounded-4" style={{ background: 'linear-gradient(135deg, #e0f7fa, #ffffff)' }}>
               <div className="card-body">
@@ -70,6 +84,37 @@ function Dashboard() {
                 <p className="mb-2"><strong>Full Name:</strong> {memberProfile.fullName}</p>
                 <p className="mb-2"><strong>Email:</strong> {memberProfile.email}</p>
                 <p className="mb-0"><strong>Mobile:</strong> {memberProfile.mobile}</p>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="col-md-5 scale-in">
+          {dependentCount !== null && (
+            <div
+              className="card shadow-lg rounded-4 border-0 mt-4 fade-in"
+              style={{ background: 'linear-gradient(135deg, #e0f7fa, #ffffff)' }}
+            >
+              <div className="card-body text-center">
+                <h5 className="card-title text-primary  mb-3">
+                  <span role="img" aria-label="dependents">👨‍👩‍👧</span> Total Dependents
+                </h5>
+                <h2 className="display-6 fw-bold">{dependentCount}</h2>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="col-md-5 scale-in">
+          {reportCount !== null && (
+            <div
+              className="card shadow-lg rounded-4 border-0 mt-4 fade-in"
+              style={{ background: 'linear-gradient(135deg, #e0f7fa, #ffffff)' }}
+            >
+              <div className="card-body text-center">
+                <h5 className="card-title text-primary  mb-3">
+                  <span role="img" aria-label="reports">📄</span> Total Uploaded Reports
+                </h5>
+                <h2 className="display-6 fw-bold">{reportCount}</h2>
               </div>
             </div>
           )}

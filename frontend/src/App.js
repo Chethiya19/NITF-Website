@@ -2,9 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './components/Home';
-import Login from './components/Login';
-import Register from './components/Register';
-import UserDashboard from './components/UserDashboard';
+import Motor from './components/Motor';
+import NonMotor from './components/NonMotor';
+import Reinsurance from './components/Reinsurance';
+import SRCC from './components/SRCC';
+import Downloads from './components/Downloads';
 
 // imports for Agrahara 
 import AgraharaLayout from './components/Agrahara/AgraharaLayout';
@@ -28,6 +30,7 @@ import ManageDependents from './components/Staff/ManageDependents';
 import DependentsPage from './components/Staff/DependentsPage';
 import ManageReports from './components/Staff/ManageReports';
 import ChangePassword from './components/Staff/ChangePassword';
+import Institute from './components/Staff/Institute';
 
 
 // imports for Admin 
@@ -44,12 +47,15 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/agrahara-login" element={<AgraharaLogin />} />
           <Route path="/agrahara-signup" element={<AgraharaSignup />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/staff-register" element={<StaffRegister />} />
+          <Route path="/motor" element={<Motor />} />
+          <Route path="/non-motor" element={<NonMotor />} />
+          <Route path="/reinsurance" element={<Reinsurance />} />
+          <Route path="/srcc" element={<SRCC />} />
+          <Route path="/downloads" element={<Downloads />} />
         </Route>
 
         <Route element={<AgraharaLayout />}>
@@ -69,6 +75,7 @@ function App() {
           <Route path="/dependents/:memberId" element={<DependentsPage />} />
           <Route path="/manage-reports" element={<ManageReports />} />
           <Route path="/change-password" element={<ChangePassword />} />
+          <Route path="/institute" element={<Institute />} />
         </Route>
 
         <Route element={<AdminLayout />}>
@@ -77,7 +84,6 @@ function App() {
           {/* <Route path="/member-details" element={<MemberDetails />} /> */}
         </Route>
 
-        <Route path="/userdashboard" element={<UserDashboard />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>

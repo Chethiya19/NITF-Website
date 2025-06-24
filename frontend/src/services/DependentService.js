@@ -21,6 +21,26 @@ const DependentService = {
     }
   },
 
+  // Get count of all dependents
+  getDependentCount: async () => {
+    try {
+      const response = await api.get(API_URL + 'count');
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || error.message;
+    }
+  },
+
+  // Get dependents count of the logged member's
+  getDependentCountForLoggedInMember: async () => {
+    try {
+      const response = await api.get(API_URL + 'dep-count');
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || error.message;
+    }
+  },
+
   addDependent: async (dependent) => {
     try {
       const response = await api.post(API_URL + 'add', dependent);

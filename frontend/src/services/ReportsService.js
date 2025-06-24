@@ -30,6 +30,26 @@ const ReportService = {
     return response.data;
   },
 
+  // Get count of all report
+  getReportCount: async () => {
+    try {
+      const response = await api.get(API_URL + 'count');
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || error.message;
+    }
+  },
+
+  // Get report count of logged member's
+  getReportCountForLoggedInMember: async () => {
+    try {
+      const response = await api.get(API_URL + 'rep-count');
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || error.message;
+    }
+  },
+
   updateReport: async (id, updatedReport, file = null) => {
     const formData = new FormData();
 

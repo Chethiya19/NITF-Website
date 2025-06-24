@@ -3,6 +3,7 @@ package com.example.backend.service;
 import com.example.backend.dto.ReportDTO;
 import com.example.backend.entity.Member;
 import com.example.backend.entity.Report;
+import com.example.backend.repository.MemberRepository;
 import com.example.backend.repository.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,21 +21,27 @@ public class ReportService {
 
     private final Path rootLocation = Paths.get("reports");
 
+    private final ReportRepository reportRepository;
+    private final MemberRepository memberRepository;
+
     @Autowired
-    private ReportRepository reportRepository;
+    public ReportService(ReportRepository reportRepository, MemberRepository memberRepository) {
+        this.reportRepository = reportRepository;
+        this.memberRepository = memberRepository;
+    }
 
     public Report store(MultipartFile file, String title, Member member) throws IOException {
-        // Ensure directory exists
+        // Ensure the reports directory exists
         Files.createDirectories(rootLocation);
 
-        // Normalize file path
-        Path destinationFile = this.rootLocation.resolve(Paths.get(file.getOriginalFilename()))
+        // Normalize and resolve destination path
+        Path destinationFile = rootLocation.resolve(Paths.get(file.getOriginalFilename()))
                 .normalize().toAbsolutePath();
 
         // Save file on disk
         file.transferTo(destinationFile);
 
-        // Save report metadata with linked member
+        // Create and save the report entity
         Report report = new Report();
         report.setFileName(file.getOriginalFilename());
         report.setTitle(title);
@@ -50,22 +57,18 @@ public class ReportService {
         return reportRepository.findByMember(member);
     }
 
-//    public List<Report> getAllReports() {
-//        return reportRepository.findAll();
-//    }
-
-
     public List<ReportDTO> getAllReports() {
         List<Report> reports = reportRepository.findAll();
-
-        return reports.stream().map(report -> new ReportDTO(
-                report.getId(),
-                report.getFileName(),
-                report.getTitle(),
-                report.getMember().getMid(),
-                report.getMember().getNic(),
-                report.getMember().getFullName()
-        )).collect(Collectors.toList());
+        return reports.stream()
+                .map(report -> new ReportDTO(
+                        report.getId(),
+                        report.getFileName(),
+                        report.getTitle(),
+                        report.getMember().getMid(),
+                        report.getMember().getNic(),
+                        report.getMember().getFullName()
+                ))
+                .collect(Collectors.toList());
     }
 
     public void updateReport(int id, ReportDTO updatedReport, MultipartFile file) throws IOException {
@@ -75,8 +78,7 @@ public class ReportService {
         report.setTitle(updatedReport.getTitle());
 
         if (file != null && !file.isEmpty()) {
-            // save file to disk (similar to store method)
-            Files.createDirectories(rootLocation);  // ensure directory exists
+            Files.createDirectories(rootLocation);
             Path destinationFile = rootLocation.resolve(Paths.get(file.getOriginalFilename()))
                     .normalize().toAbsolutePath();
             file.transferTo(destinationFile);
@@ -87,5 +89,13 @@ public class ReportService {
         reportRepository.save(report);
     }
 
+    public long getReportCount() {
+        return reportRepository.count();
+    }
 
+    public long getReportCountByMemberNic(String memberNic) {
+        Member member = memberRepository.findByNic(memberNic)
+                .orElseThrow(() -> new IllegalArgumentException("Member not found"));
+        return reportRepository.countByMember(member);
+    }
 }

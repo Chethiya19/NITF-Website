@@ -51,4 +51,9 @@ public class MemberController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> getMemberCount() {
+        return ResponseEntity.ok(memberService.getMemberCount());
+    }
 }

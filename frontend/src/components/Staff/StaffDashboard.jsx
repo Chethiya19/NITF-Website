@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import StaffService from '../../services/StaffService';
+import MemberService from '../../services/MemberService';
+import DependentService from '../../services/DependentService';
+import ReportsService from '../../services/ReportsService';
 import { getStaffName } from '../../utils/StaffAuthUtils';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './StaffDashboard.css'; // Make sure to import CSS file
+import './StaffDashboard.css'; 
 
 function StaffDashboard() {
   const [staffProfile, setStaffProfile] = useState(null);
+  const [memberCount, setMemberCount] = useState(null);
+  const [dependentCount, setDependentCount] = useState(null);
+  const [reportCount, setReportCount] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -14,8 +20,16 @@ function StaffDashboard() {
       try {
         const profile = await StaffService.getStaffProfile();
         setStaffProfile(profile);
+
+        // Fetch count
+        const count = await MemberService.getMemberCount();
+        setMemberCount(count);
+        const count1 = await DependentService.getDependentCount();
+        setDependentCount(count1);
+        const count2 = await ReportsService.getReportCount();
+        setReportCount(count2);
       } catch (err) {
-        setError('Failed to fetch staff profile. Please login again.');
+        setError('Failed to fetch staff profile or member count. Please login again.');
         console.error(err);
       } finally {
         setLoading(false);
@@ -28,7 +42,7 @@ function StaffDashboard() {
   if (error) return <div className="alert alert-danger mt-4 text-center">{error}</div>;
 
   return (
-    <div className="container mt-5 fade-in">
+    <div className="container mt-3 fade-in">
       <div className="text-center mb-5">
         <h2 className="fw-bold text-success slide-down">Welcome, {getStaffName()}!</h2>
         <p className="text-muted slide-up">This is your interactive staff dashboard.</p>
@@ -66,6 +80,53 @@ function StaffDashboard() {
                 <p className="mb-2"><strong>Full Name:</strong> {staffProfile.fullName}</p>
                 <p className="mb-2"><strong>Email:</strong> {staffProfile.email}</p>
                 <p className="mb-0"><strong>Mobile:</strong> {staffProfile.mobile}</p>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="col-md-4 scale-in">
+          {memberCount !== null && (
+            <div
+              className="card shadow-lg rounded-4 border-0 mt-4 fade-in"
+              style={{ background: 'linear-gradient(135deg, #e8f5e9, #ffffff)' }}
+            >
+              <div className="card-body text-center">
+                <h5 className="card-title text-success  mb-3">
+                  <span role="img" aria-label="members">👥</span> Total Registered Members
+                </h5>
+                <h2 className="display-6 fw-bold">{memberCount}</h2>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="col-md-4 scale-in">
+          {dependentCount !== null && (
+            <div
+              className="card shadow-lg rounded-4 border-0 mt-4 fade-in"
+              style={{ background: 'linear-gradient(135deg, #e8f5e9, #ffffff)' }}
+            >
+              <div className="card-body text-center">
+                <h5 className="card-title text-success  mb-3">
+                  <span role="img" aria-label="dependents">👨‍👩‍👧</span> Total Dependents
+                </h5>
+                <h2 className="display-6 fw-bold">{dependentCount}</h2>
+              </div>
+            </div>
+          )}
+        </div>
+        
+        <div className="col-md-4 scale-in">
+          {reportCount !== null && (
+            <div
+              className="card shadow-lg rounded-4 border-0 mt-4 fade-in"
+              style={{ background: 'linear-gradient(135deg, #e8f5e9, #ffffff)' }}
+            >
+              <div className="card-body text-center">
+                <h5 className="card-title text-success  mb-3">
+                  <span role="img" aria-label="reports">📄</span> Total Uploaded Reports
+                </h5>
+                <h2 className="display-6 fw-bold">{reportCount}</h2>
               </div>
             </div>
           )}

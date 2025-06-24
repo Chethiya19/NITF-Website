@@ -12,10 +12,11 @@ const Sidebar = () => {
       <hr style={hrStyle} />
       <ul style={ulStyle}>
         <li><Link to="/staff-dashboard" style={linkStyle} className="sidebar-link">Dashboard</Link></li>
-        <li><Link to="/manage-members" style={linkStyle} className="sidebar-link">Manage Member</Link></li>
+        <li><Link to="/manage-members" style={linkStyle} className="sidebar-link">Manage Members</Link></li>
         <li><Link to="/member-details" style={linkStyle} className="sidebar-link">Member Details</Link></li>
         <li><Link to="/manage-dependents" style={linkStyle} className="sidebar-link">Manage Dependents</Link></li>
         <li><Link to="/manage-reports" style={linkStyle} className="sidebar-link">Manage Reports</Link></li>
+        <li><Link to="/institute" style={linkStyle} className="sidebar-link">Manage Institutes</Link></li>
         <li><Link to="/change-password" style={linkStyle} className="sidebar-link">Change Password</Link></li>
       </ul>
     </aside>

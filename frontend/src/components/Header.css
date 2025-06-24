@@ -76,6 +76,11 @@
   color: white !important;
 }
 
+.dropdown-item.active {
+  background-color: #32373b !important;
+  color: white !important;
+}
+
 /* User icon button in header */
 .user-icon-btn {
   font-size: 28px;

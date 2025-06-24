@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -79,6 +81,18 @@ public class DependentController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ResponseDTO("99", "Failed to delete dependent", null));
         }
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> getDependentCount() {
+        return ResponseEntity.ok(dependentService.getDependentCount());
+    }
+
+    @GetMapping("/dep-count")
+    public ResponseEntity<Long> getDependentCountForLoggedInMember(@AuthenticationPrincipal UserDetails userDetails) {
+        String memberNic = userDetails.getUsername(); // or custom claim
+        long count = dependentService.getDependentCountByMemberNic(memberNic);
+        return ResponseEntity.ok(count);
     }
 
 }

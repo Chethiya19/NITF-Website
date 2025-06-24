@@ -11,7 +11,6 @@ const ManageReports = () => {
   const [updatedTitle, setUpdatedTitle] = useState("");
   const [updatedFile, setUpdatedFile] = useState(null);
 
-  // States for success message
   const [showMessageBox, setShowMessageBox] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -22,7 +21,7 @@ const ManageReports = () => {
   const fetchReports = async () => {
     try {
       const data = await ReportService.getAllReports();
-      console.log("Reports data:", data); // Debug fetched data
+      console.log("Reports data:", data);
       setReports(data);
     } catch (error) {
       console.error("Error fetching reports:", error);
@@ -44,14 +43,17 @@ const ManageReports = () => {
     if (!selectedReport) return;
 
     try {
-      await ReportService.updateReport(selectedReport.id, { title: updatedTitle }, updatedFile);
+      await ReportService.updateReport(
+        selectedReport.id,
+        { title: updatedTitle },
+        updatedFile
+      );
 
       setShowModal(false);
       setSuccessMessage("Report updated successfully!");
       setShowMessageBox(true);
       fetchReports();
 
-      // Auto-hide message after 3 seconds
       setTimeout(() => {
         setShowMessageBox(false);
         setSuccessMessage("");
@@ -59,6 +61,13 @@ const ManageReports = () => {
     } catch (error) {
       console.error("Error updating report:", error);
     }
+  };
+
+  const isFormChanged = () => {
+    if (!selectedReport) return false;
+    const titleChanged = updatedTitle !== (selectedReport.title ?? "");
+    const fileChanged = updatedFile !== null;
+    return titleChanged || fileChanged;
   };
 
   const filteredReports = reports.filter((r) =>
@@ -74,7 +83,7 @@ const ManageReports = () => {
       style={{ backgroundColor: "#fff", maxWidth: "1100px" }}
     >
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h4 className="text-primary">All Uploaded Reports</h4>
+        <h3>All Uploaded Reports</h3>
         <input
           type="text"
           placeholder="Search reports..."
@@ -169,7 +178,7 @@ const ManageReports = () => {
           <Button variant="secondary" onClick={() => setShowModal(false)}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleSave}>
+          <Button variant="primary" onClick={handleSave} disabled={!isFormChanged()}>
             Save Changes
           </Button>
         </Modal.Footer>

@@ -104,4 +104,9 @@ public class MemberService {
         Member updated = memberRepository.save(member);
         return convertToDTO(updated);
     }
+
+    public long getMemberCount() {
+        return memberRepository.count();
+    }
+
 }
